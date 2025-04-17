@@ -19,9 +19,7 @@ Ce projet est un environnement de développement LAMP (Linux, Apache, MySQL, PHP
 
 bash'''
 
-git clone https://github.com/tolkya/moto_crud.git
-
-cd moto_crud
+git clone https://github.com/tolkya/moto_crud.git .
 
 docker-compose up -d
 
