@@ -6,6 +6,7 @@ require '../appel/pdo.php';
 <html lang="fr">
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/moto.css">
     <link rel="stylesheet" href="../assets/css/header.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -57,11 +58,12 @@ require '../appel/pdo.php';
             </form>
         </aside>
 
-        <!-- Liste des motos et pagination -->
+        <!-- Liste des motos -->
         <div class="moto-container" id="motoList"></div>
-        <div id="pagination"></div>
+        
     </div>
-
+    <!-- pagination -->
+    <div id="pagination"></div>
     <script>
         function loadMotos(page = 1) {
             $.ajax({

@@ -6,7 +6,7 @@ session_start();
 require '../appel/pdo.php';
 
 // Définit le nombre de motos par page
-$limit = 9;
+$limit = 6;
 
 // Récupère le numéro de la page depuis POST, si il est défini et numérique, sinon par défaut 1
 $page = isset($_POST['page']) && is_numeric($_POST['page']) ? (int)$_POST['page'] : 1;
@@ -104,54 +104,57 @@ $totalPages = ceil($total / $limit);
     <?php endif; ?>
 </ul>
 
-<!-- Pagination -->
+
 <div class="pagination">
-    <?php if ($page > 1): ?>
-        <a href="#" class="pagination-link" data-page="<?php echo $page - 1; ?>">Précédent</a>
-    <?php endif; ?>
+    <!-- Première Page -->
+    <a href="#"
+       class="pagination-link <?php echo ($page <= 1) ? 'disabled' : ''; ?>"
+       data-page="1"
+       <?php echo ($page <= 1) ? 'onclick="return false;"' : ''; ?>>
+       Première Page
+    </a>
+
+    <!-- Précédent -->
+    <a href="#"
+        class="pagination-link <?php echo ($page <= 1) ? 'disabled' : ''; ?>"
+        data-page="<?php echo max(1, $page - 1); ?>"
+        <?php echo ($page <= 1) ? 'onclick="return false;"' : ''; ?>>
+        Précédent
+    </a>
+
 
     <?php
-    $pagesToShow = 2; // Nombre de pages visibles avant et après la page actuelle
+    $pagesToShow = 2;
 
-    // Affichage des pages
     for ($i = 1; $i <= $totalPages; $i++) {
-        // Toujours afficher la première et la dernière page
         if ($i == 1 || $i == $totalPages || ($i >= $page - $pagesToShow && $i <= $page + $pagesToShow)) {
             if ($i == $page) {
-                echo "<strong class='active'>$i</strong> "; // Page actuelle en gras
+                echo "<strong class='active'>$i</strong> ";
             } else {
                 echo "<a href='#' class='pagination-link' data-page='$i'>$i</a> ";
             }
-        }
-        // Ajouter "..." quand il y a un saut entre les pages
-        elseif ($i == 2 && $page > $pagesToShow + 2) {
+        } elseif ($i == 2 && $page > $pagesToShow + 2) {
             echo "<span>...</span> ";
-        }
-        elseif ($i == $totalPages - 1 && $page < $totalPages - $pagesToShow - 1) {
+        } elseif ($i == $totalPages - 1 && $page < $totalPages - $pagesToShow - 1) {
             echo "<span>...</span> ";
         }
     }
     ?>
 
-    <?php if ($page < $totalPages): ?>
-        <a href="#" class="pagination-link" data-page="<?php echo $page + 1; ?>">Suivant</a>
-    <?php endif; ?>
-</div>
+    <!-- Suivant -->
+    <a href="#"
+        class="pagination-link <?php echo ($page >= $totalPages) ? 'disabled' : ''; ?>"
+        data-page="<?php echo min($totalPages, $page + 1); ?>"
+        <?php echo ($page >= $totalPages) ? 'onclick="return false;"' : ''; ?>>
+        Suivant
+    </a>
 
 
-
-<!-- Pagination 
-<div class="pagination">
-     Lien vers la page précédente si ce n'est pas la première page 
-    <?php if ($page > 1): ?>
-        <a href="#" class="pagination-link" data-page="<?php echo $page - 1; ?>">Précédent</a>
-    <?php endif; ?>
-
-     Affichage du numéro de page 
-        <div><?php echo $page; ?> </div> 
-
-     Lien vers la page suivante si ce n'est pas la dernière 
-    <?php if ($page < $totalPages): ?>
-        <a href="#" class="pagination-link" data-page="<?php echo $page + 1; ?>">Suivant</a>
-    <?php endif; ?>-->
+    <!-- Dernière Page -->
+    <a href="#"
+       class="pagination-link <?php echo ($page >= $totalPages) ? 'disabled' : ''; ?>"
+       data-page="<?php echo $totalPages; ?>"
+       <?php echo ($page >= $totalPages) ? 'onclick="return false;"' : ''; ?>>
+       Dernière Page
+    </a>
 </div>
