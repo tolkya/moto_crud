@@ -16,12 +16,12 @@ body {
 .container {
   display: flex;
   flex-direction: column;
+  flex: 1;
   width: 100vw; /* ✅ pour occuper toute la largeur visible */
+  max-width: 100%;
   padding: 20px;
   box-sizing: border-box;
-  flex: 1;
   margin: 0 auto;
-  overflow-x: hidden; /* ✅ empêche les scrollbars horizontales */
 }
 
 /* 🧭 Sidebar */
@@ -156,11 +156,10 @@ ul {
 
 /* 📄 Pagination */
 #pagination {
-
+  margin-top: auto;
   background: rgba(0, 0, 0, 0.8);
   box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.4);
   width: 100%;
-  z-index: 100;
   text-align: center;
 }
 

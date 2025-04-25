@@ -6,7 +6,7 @@ session_start();
 require '../appel/pdo.php';
 
 // Définit le nombre de motos par page
-$limit = 6;
+$limit = 9;
 
 // Récupère le numéro de la page depuis POST, si il est défini et numérique, sinon par défaut 1
 $page = isset($_POST['page']) && is_numeric($_POST['page']) ? (int)$_POST['page'] : 1;

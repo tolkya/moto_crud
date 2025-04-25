@@ -1,15 +1,17 @@
+/* 🌐 Reset de base */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* 🧭 Header principal */
 header {
     position: fixed;  /* Fixe le header en haut de l'écran */
     top: 0;
     left: 0;
     width: 100%;  /* Le header prend toute la largeur */
-    height: 10dvh; /* Hauteur dynamique = 10% de la hauteur de l'écran */
+    height: 10vh; /* Hauteur fluide = 10% de la hauteur de l'écran */
     display: flex;  /* Active le flexbox pour aligner les éléments */
     justify-content: space-between;  /* Répartit les éléments (gauche, centre, droite) */
     align-items: center;  /* Centre verticalement les éléments */
@@ -17,71 +19,124 @@ header {
     color: white;  /* Texte blanc */
     padding: 0 2vw;  /* Espacement horizontal basé sur la largeur de l'écran */
     z-index: 1000;  /* Met le header au-dessus des autres éléments */
+    flex-wrap: wrap;  /* Permet le retour à la ligne si trop serré */
+    overflow: hidden;  /* Évite que le contenu dépasse */
 }
 
-
+/* 🏍️ Logo du site */
 .logo {
-    text-decoration: none;  /* Supprime le soulignement du lien */
-    color: white;  /* Texte blanc */
-    font-size: 1.4rem; /* Taille du texte en fonction de la base du document */
-    font-weight: bold;  /* Texte en gras */
-    text-align: center;
+    display: flex;               /* Permet de gérer le logo image + texte si besoin */
+    align-items: center;         /* Centre verticalement l'image dans le lien */
+    text-decoration: none;       /* Supprime le soulignement du lien */
+    color: white;                /* Texte blanc */
+    font-size: calc(1.2vh + 1vw); /* Taille fluide en fonction de la taille écran */
+    font-weight: bold;           /* Texte en gras */
+    white-space: nowrap;         /* Évite que le texte se coupe */
+    overflow: hidden;            /* Coupe si ça déborde */
+    text-overflow: ellipsis;     /* Ajoute "..." si le texte dépasse */
+    max-width: 30vw;             /* ⚠️ Empêche le bloc logo de prendre trop de place */
 }
 
+/* 📷 Image du logo Honda */
 .logo-img {
-    height: 4dvh;
+    height: 4.5vh;               /* Taille fluide selon la hauteur d'écran */
+    max-height: 50px;            /* Évite qu’elle devienne énorme */
+    width: auto;                 /* Préserve les proportions */
+    margin-right: 0.5vw;         /* Petit espace si on ajoute du texte à droite */
+    flex-shrink: 0;              /* ⚠️ Ne pas écraser l’image si l’espace manque */
 }
 
+/* 🌟 Effet visuel au survol */
 a:hover {
     text-shadow: 2px 2px 4px rgba(252, 0, 0, 0.842);
-  }
+}
 
+/* 🌈 Animation du titre */
 @keyframes colorChange {
     0% { color: #0004ff; } 
     50% { color: #ffffff; } 
     100% { color: #ff0000; }
 }
+
+/* 🎯 Titre central animé */
 h2#title {
-    flex: 1;  /* Permet au titre de prendre toute la place restante */
+    flex: 1;  /* Prend l’espace restant */
     text-align: center;  /* Centre le texte */
-    font-size: 4dvh; /* Ajuste la taille pour être plus visible */
+    font-size: calc(1.5vh + 1.2vw); /* Fluide en fonction de la fenêtre */
     font-weight: bold;
     text-transform: uppercase;
     animation: colorChange 2s infinite alternate;
+    margin: 0 1vw;
+    white-space: nowrap; /* Empêche de passer à la ligne */
+    overflow: hidden; /* Coupe si trop long */
+    text-overflow: ellipsis; /* Ajoute "..." si dépasse */
 }
 
+/* 🔐 Conteneur des boutons d'authentification */
 .auth {
-    display: flex;  /* Active le flexbox pour aligner les boutons horizontalement */
-    gap: 2vw; /* Ajoute un espacement entre les boutons */
+    display: flex;
+    flex-wrap: wrap; /* Permet retour à la ligne si l’espace est trop petit */
+    gap: 1.5vw;
+    justify-content: flex-end;
+    max-width: 100%; /* Empêche de dépasser du header */
 }
 
-
+/* 🙋‍♂️ Nom d'utilisateur affiché */
 .username {
     text-decoration: none;
     font-weight: bold;
     color: #ff0000;
-    font-size: 1.2rem;
-    margin-top: 0.4rem;
+    font-size: calc(1vh + 0.5vw); /* Taille fluide adaptée */
+    margin-top: 0.2rem;
+    white-space: nowrap;
 }
 
-
-
+/* 🔘 Boutons de connexion/inscription */
 .btn {
-    text-decoration: none; /* Supprime le soulignement */
-    color: white; /* Texte blanc */
-    background: #ff0000; /* Couleur bleue */
-    padding: 0.5em 1.2em; /* Ajoute un padding fluide */
-    border-radius: 0.5rem; /* Arrondit les bords */
-    font-size: 1.1rem; /* Ajuste la taille du texte */
+    text-decoration: none;
+    color: white;
+    background: #ff0000;
+    padding: 0.4em 1em;
+    border-radius: 0.5rem;
+    font-size: calc(1vh + 0.5vw); /* Taille fluide du texte */
+    white-space: nowrap;
 }
 
 .btn:hover {
-    background: #b30000; /* Change la couleur au survol */
+    background: #b30000;
 }
 
-
-/* Ajoute un padding en haut pour éviter que le contenu soit caché sous le header */
+/* 📏 Padding top pour éviter que le contenu soit caché sous le header */
 body {
-    padding-top: 10dvh; /* Décale le contenu sous le header */
-    font-size: 1rem; /* Définit une base pour éviter les variations */
+    padding-top: 10vh;
+    font-size: 1rem;
+}
+
+/* 📱 Responsive spécifique aux petits écrans */
+@media screen and (max-width: 600px), screen and (max-height: 400px) {
+    header {
+        flex-direction: column;
+        height: auto; /* Permet au header de s'adapter à son contenu */
+        padding: 1vh 2vw;
+    }
+
+    h2#title {
+        font-size: 5vw;
+        margin: 0.5vh 0;
+    }
+
+    .auth {
+        justify-content: center;
+        gap: 1vw;
+        padding-top: 0.5vh;
+    }
+
+    .btn, .username {
+        font-size: 0.9rem;
+        padding: 0.4em 0.8em;
+    }
+
+    .logo-img {
+        height: 4vh;
+    }
 }
