@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : db
--- Généré le : lun. 24 mars 2025 à 12:17
+-- Généré le : lun. 28 avr. 2025 à 23:52
 -- Version du serveur : 8.0.41
 -- Version de PHP : 8.2.27
 
@@ -59,7 +59,14 @@ INSERT INTO `motos` (`id`, `user_id`, `Image`, `Description`, `Utilite`, `Modele
 (15, 1, 'GB350S.webp', 'Un moteur super carré, un vrai plaisir en balade détente.', 'Balade, petit trajet du week-end.', 'GB 350 S', '', 'Black', '2025', 'Roadster', 348, 21.0, '2025-03-09 22:18:04'),
 (16, 1, 'cb650Rblack.jpg', 'très agréable, moteur coupleux qui réagis correctement.', 'Balade, quotidien.', 'CB650R', 'Néeo rétro sport café', 'Black', '2023', 'Roadster', 649, 95.0, '2025-03-17 15:13:28'),
 (17, 4, 'honda-nx-650-dominator-1987.jpg', 'Moteur très joueur', 'Balade du week-end', 'NX 650 Dominatore', '', 'Black', '1987', 'Trail', 644, 46.0, '2025-03-20 08:51:12'),
-(18, 5, 'hondacmx125-rebel1985.jpg', 'Moto facile a entretenir, une consommation très faible', 'Petite balade, quand je veux me détendre c\'est la compagne idéale.', 'CMX 250 Peronist', 'Custom', 'Verte', '1986', 'Cruiser', 234, 18.0, '2025-03-20 09:39:21');
+(18, 5, 'hondacmx125-rebel1985.jpg', 'Moto facile a entretenir, une consommation très faible', 'Petite balade, quand je veux me détendre c\'est la compagne idéale.', 'CMX 250 Peronist', 'Custom', 'Verte', '1986', 'Cruiser', 234, 18.0, '2025-03-20 09:39:21'),
+(20, 7, 'honda-cbx-honda-cbx-1000-1980-125-cm3-moto-routiere-45-000-km-gris-75009-paris-09-gris_245611516.webp', 'Chassis robuste', 'Balade', 'CB X 1000', '', 'GRIS', '1980', 'Roadster', 1000, 105.0, '2025-04-28 22:05:52'),
+(21, 7, 'honda cb 550 1978.webp', 'Excellent moteur', 'Balade le week-end', 'CB 550', 'Super sport Four', 'Ruby', '1978', 'Roadster', 550, 50.0, '2025-04-28 22:16:52'),
+(22, 8, '750 honda.jpg', 'Moteur construit par M3 racing', 'Exposition', 'CR 750', 'Daytona', 'GRIS / ROUGE', '1996', 'Sportive', 750, 93.0, '2025-04-28 22:22:23'),
+(23, 9, 'honda-vt-honda-vt-750-shadow-ace-c2-bj-1999-von-1-hand_156314233.jpg', 'Bon gabarit et moteur simple', 'Profiter du beau temps', 'VT 750', 'Shadow', 'Blanche', '1998', '', 745, 46.0, '2025-04-28 23:28:19'),
+(24, 10, 'cx 500 1981.webp', 'Moteur délicat', 'balade au lac, restaurant.', 'CX 500', '', 'Bleu/vert canard', '1981', 'Cruiser', 497, 78.0, '2025-04-28 23:34:42'),
+(25, 11, 'honda-cmx300-rebel-300-detailed-specs-background-performance-and-more_23be2ba3-8068-4c20-84df-b3d5ef587f37.webp', 'Le mixe d&#039;un cruiser classic et les nouvelles technologies comme les leds et accessoires', 'balade, aller en ville, profiter des beaux jours.', 'Rebel CMX 300', '', 'Black', '2022', 'Cruiser', 286, 27.0, '2025-04-28 23:44:22'),
+(26, 12, '-125-MSX-1.webp', 'Simple et robuste, très marrante.', 'Aller en ville durant les beau jours', 'MSX 125', '', 'Rouge', '2018', 'Roadster', 125, 10.0, '2025-04-28 23:52:04');
 
 -- --------------------------------------------------------
 
@@ -86,7 +93,13 @@ INSERT INTO `users` (`id`, `username`, `email`, `password`, `statut`, `created_a
 (3, 'NIKOS', 'nico87@email.fr', '$argon2id$v=19$m=65536,t=4,p=1$Y2Q1ME9TZW14UTNCZnUwWQ$kgK/Eqiwz4xL7DzN9gxmEutsRq7TbyLf8ftTjUs/4mQ', NULL, '2025-03-03 00:31:13'),
 (4, 'Benjamin', 'benjamin@email.fr', '$argon2id$v=19$m=65536,t=4,p=1$dGouL0NrVy5wcXU3UzVmcw$8GvYhyuE5ZknMuZXaQSdhRrsfpiURHSw9cp6UDlDB7Y', NULL, '2025-03-20 08:32:48'),
 (5, 'Mervin', 'mervin@email.fr', '$argon2id$v=19$m=65536,t=4,p=1$M1F0VWZVaEZBc1hGa090Rw$lrqdD3I/5AY+Rh5VZpT7+tZWTTjHwR2L1CHRIyIy3pQ', NULL, '2025-03-20 09:20:00'),
-(6, 'nolan', 'nolan@email.fr', '$argon2id$v=19$m=65536,t=4,p=1$a3VDWU90akpzdEc1QzF3VQ$CfXE6UQSeYjfvEcmB3gV2rBQqnCu8XDqmfzIEi6qpws', NULL, '2025-03-20 12:33:21');
+(6, 'nolan', 'nolan@email.fr', '$argon2id$v=19$m=65536,t=4,p=1$a3VDWU90akpzdEc1QzF3VQ$CfXE6UQSeYjfvEcmB3gV2rBQqnCu8XDqmfzIEi6qpws', NULL, '2025-03-20 12:33:21'),
+(7, 'huo', 'hugo@email.fr', '$argon2id$v=19$m=65536,t=4,p=1$ZlVxQU1tUUNsM2IwRWE5RQ$6C0JeXC42gd7soBtO9uB7yPGCv96aRDZ0ThEYXtZaHY', NULL, '2025-04-28 22:01:59'),
+(8, 'Mulon', 'T.mulon@email.fr', '$argon2id$v=19$m=65536,t=4,p=1$S2p6R2RzMngvTEk5TFg0aQ$dPZKZTGXxdbL6wxEhO367V9iKth5mJ2+bi0x+rOdZPs', NULL, '2025-04-28 22:17:41'),
+(9, 'Léo', 'L.natte@email.fr', '$argon2id$v=19$m=65536,t=4,p=1$bFZoQnFDVWYubDhnc0VwSw$ftMHqheDCr4uEE9xizBfYc9Yc0WSAaGzWx/mO0zojUk', NULL, '2025-04-28 22:26:05'),
+(10, 'Alice', 'A.liu@email.fr', '$argon2id$v=19$m=65536,t=4,p=1$NFQ3T3VSYUVwZ1IuR0VZZg$lKoae4cBGQtPwpJI2+72W9Q7TXF3hkPK6G1IDfpVR2M', NULL, '2025-04-28 23:28:58'),
+(11, 'Juliette', 'J.emerau@email.fr', '$argon2id$v=19$m=65536,t=4,p=1$emE0UnNkNk1UekNtUTdWLw$b/vqysNdKmPKvlw/X83sA8U18WQNrwpS4XU5itjYxOk', NULL, '2025-04-28 23:36:18'),
+(12, 'Maeva', 'M.roux@email.fr', '$argon2id$v=19$m=65536,t=4,p=1$OWU4MFZVQTd2QkJYMnVrNA$uU3vUDskjctgUqOF9o9BbTRtwZEViroUSwlMiQoasbA', NULL, '2025-04-28 23:45:38');
 
 --
 -- Index pour les tables déchargées
@@ -115,13 +128,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `motos`
 --
 ALTER TABLE `motos`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Contraintes pour les tables déchargées
