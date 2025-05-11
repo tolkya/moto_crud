@@ -4,6 +4,12 @@
 session_start();
 require_once '../appel/pdo.php';
 
+// 🔁 Gère le retour AVANT tout traitement ou affichage
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['retour'])) {
+    header('Location: dashboard.php');
+    exit();
+}
+
 // Vérifie si l'utilisateur est connecté
 if (!isset($_SESSION['user_id'])) {
     header("Location: ../public/moto.php");
@@ -87,16 +93,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <textarea name="utilite" placeholder="Balade" required></textarea><br>
 
             <button type="submit">Ajouter</button>
-            <?php
-                if (isset($_POST['retour'])) {
-                    header('Location: dashboard.php'); // Remplace par l'URL de ton choix
-                    exit();
-                }
-                ?>
-
-            <form method="post">
+        </form>
+        <form method="post">
                     <button type="submit" name="retour">Retour</button>
             </form> <!--bouton pour faire retour-->
-        </form>
     </body>
 </html>
