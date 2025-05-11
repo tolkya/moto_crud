@@ -4,7 +4,7 @@ require '../appel/pdo.php';
 
 // Vérifier si l'utilisateur est connecté
 if (!isset($_SESSION['user_id'])) {
-    header("Location: moto.php");
+    header("Location: ../public/moto.php");
     exit();
 }
 

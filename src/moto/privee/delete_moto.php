@@ -5,9 +5,9 @@ session_start();
 // Inclusion du fichier de configuration pour établir la connexion à la base de données
 require_once '../appel/pdo.php';
 
-// Vérifie si l'utilisateur est connecté, sinon le redirige vers la page de connexion
+// Vérifie si l'utilisateur est connecté, sinon le redirige vers la page d'accueil
 if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php"); // Redirection vers la page de connexion
+    header("Location: ../public/moto.php"); // Redirection vers la page d'accueil
     exit(); // Arrête l'exécution du script après la redirection
 }
 
